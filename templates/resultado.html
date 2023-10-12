@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Resultado da Análise Financeira</title>
+    <style>
+        body {
+          background-color: #008445;
+          color: white;
+        }
+        .container {
+          background-color: #FFF;
+          color: #000;
+          border-radius: 8px;
+          padding: 20px;
+          margin-top: 20px;
+        }
+        .btn-primary {
+          background-color: #FFD400;
+          border-color: #FFD400;
+        }
+        .badge {
+            font-size: 1em;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Resultado da Análise Financeira</h1>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3>Índices Financeiros</h3>
+                <ul>
+                    <li>Liquidez Corrente: <span class="badge badge-primary">{{ "{:.2f}".format(indices['liquidez_corrente']) }}</span></li>
+                    <li>Liquidez Seca: <span class="badge badge-secondary">{{ "{:.2f}".format(indices['liquidez_seca']) }}</span></li>
+                    <li>Margem Líquida: <span class="badge badge-success">{{ "{:.2f}".format(indices['margem_liquida']) }}%</span></li>
+                    <li>ROE: <span class="badge badge-danger">{{ "{:.2f}".format(indices['roe']) }}%</span></li>
+                    <li>ROA: <span class="badge badge-warning">{{ "{:.2f}".format(indices['roa']) }}%</span></li>
+                    <li>EBITDA: <span class="badge badge-info">{{ "{:.2f}".format(indices['ebitda']) }}</span></li>
+                    <li>Margem EBITDA: <span class="badge badge-dark">{{ "{:.2f}".format(indices['margem_ebitda']) }}%</span></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Recomendações e Explicações</h3>
+                <ul>
+                    {% for key, value in recomendacoes.items() %}
+                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <a href="/" class="btn btn-secondary">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

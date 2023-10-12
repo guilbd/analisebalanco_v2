@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+          background-color: #008445; /* Verde Sicoob */
+          color: white; /* Cor do texto */
+        }
+        .container {
+          background-color: #FFF; /* Cor de fundo do container */
+          color: #000; /* Cor do texto no container */
+          border-radius: 8px;
+          padding: 20px;
+          margin-top: 20px;
+        }
+        .btn-primary {
+          background-color: #FFD400; /* Amarelo Sicoob */
+          border-color: #FFD400;
+        }
+        .form-control {
+            max-width: 300px;
+        }
+        .center-label {
+            text-align: center;
+        }
+        .btn-analisar {
+            background-color: #7db61d; /* Exemplo de cor laranja */
+            border-color: #015a5d;
+            color: #FFF; /* Cor do texto */
+          }
+    </style>
+    
+    <title>Análise Financeira V2</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4">Análise Financeira de Empresa</h1>
+        <!-- <h2 class="text-center mt-4">Balanço Patrimonial</h2> --> 
+        <form action="{{ url_for('index') }}" method="post">
+            <div class=row>
+                <!-- Coluna para Ativos -->
+                <div class='col-md-6'>
+                    <h2>Ativo</h2>
+                    <div class='form-group'>
+                        <label for='ativo_circulante'>Ativo Circulante</label>
+                        <input type='text' class='form-control' id='ativo_circulante' name='ativo_circulante' placeholder='Ativo Circulante'>
+                        <label for='estoque'>Estoque</label>
+                        <input type='text' class='form-control' id='estoque' name='estoque' placeholder='Estoque'>
+                        <label for='ativo_nao_circulante'>Ativo Não Circulante</label>
+                        <input type='text' class='form-control' id='ativo_nao_circulante' name='ativo_nao_circulante' placeholder='Ativo Não Circulante'>
+                    </div>
+                </div>
+                <!-- Coluna para Passivos -->
+                <div class="col-md-6">
+                    <h2>Passivos</h2>
+                    <div class="form-group">
+                        <label for="passivo_circulante">Passivo Circulante:</label>
+                        <input type="text" class="form-control" name="passivo_circulante" >
+                        <label for="passivo_nao_circulante">Passivo Não Circulante:</label>
+                        <input type="text" class="form-control" name="passivo_nao_circulante" >
+                        <label for="patrimonio_liquido">Patrimônio Líquido:</label>
+                        <input type="text" class="form-control" name="patrimonio_liquido">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nova Seção para DRE -->
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h2>Demonstração do Resultado do Exercício (DRE)</h2>
+                    <div class="form-group">
+                        <label for="receita_liquida">Receita Líquida:</label>
+                        <input type="text" class="form-control" name="receita_liquida">
+                    </div>
+                    <div class="form-group">
+                        <label for="custo_produtos_vendidos">Custo dos Produtos Vendidos:</label>
+                        <input type="text" class="form-control" name="custo_produtos_vendidos">
+                    </div>
+                    <div class="form-group">
+                        <label for="despesas_operacionais">Despesas Operacionais:</label>
+                        <input type="text" class="form-control" name="despesas_operacionais">
+                    </div>
+                    <div class="form-group">
+                        <label for="despesas_financeiras">Despesas Financeiras:</label>
+                        <input type="text" class="form-control" name="despesas_financeiras">
+                    </div>
+                    <div class="form-group">
+                        <label for="lucro_liquido">Lucro Líquido:</label>
+                        <input type="text" class="form-control" name="lucro_liquido">
+                    </div>  
+                </div>
+            </div>
+
+            <!-- Botão para submeter o formulário -->
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-analisar mt-3">Analisar</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
